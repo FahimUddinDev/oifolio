@@ -1,103 +1,135 @@
-function Header() {
+import ProtoTypes from "prop-types";
+import { useState } from "react";
+import OffCanvas from "./Offcanvas";
+import { Link } from "react-router-dom";
+import Topbar from "./Topbar";
+
+function Header({ className, topbar, togglbtnClass, toggleBtnImg, logo }) {
+  const [offCanvas, setOffCanvas] = useState(false);
   return (
-    <header data-scroll-index="0" className="header-area">
-      <div className="container custom-container">
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="header-items">
-              <div className="header-logo">
-                <a href="index.html">
-                  <img src="assets/images/logo.png" alt="" />
-                </a>
-              </div>
-              <div className="header-menu">
-                <div className="main_menu menu_two d-flex justify-content-lg-between justify-content-center align-items-center">
-                  <nav>
-                    <ul>
-                      <li>
-                        <a className="active" href="index.html">
-                          Home <i className="fa fa-angle-down"></i>
-                        </a>
-                        <ul className="sub_menu">
-                          <li>
-                            <a href="index.html">Home 1</a>
-                          </li>
-                          <li>
-                            <a href="index-2.html">Home 2</a>
-                          </li>
-                          <li>
-                            <a href="index-3.html">Home 3</a>
-                          </li>
-                          <li>
-                            <a href="index-4.html">Home 4</a>
-                          </li>
-                          <li>
-                            <a href="index-5.html">Home 5</a>
-                          </li>
-                          <li>
-                            <a href="index-6.html">Home 6</a>
-                          </li>
-                          <li>
-                            <a href="index-7.html">Home 7</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="about.html"> About</a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          {" "}
-                          Portfolio <i className="fa fa-angle-down"></i>
-                        </a>
-                        <ul className="sub_menu">
-                          <li>
-                            <a href="portfolio-1.html">Portfolio 1</a>
-                          </li>
-                          <li>
-                            <a href="portfolio-2.html">Portfolio 2</a>
-                          </li>
-                          <li>
-                            <a href="portfolio-3.html">Portfolio 3</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="#">
-                          Pages<i className="fa fa-angle-down"></i>
-                        </a>
-                        <ul className="sub_menu">
-                          <li>
-                            <a href="blog.html">Blog</a>
-                          </li>
-                          <li>
-                            <a href="blog-details.html">Blog Details</a>
-                          </li>
-                          <li>
-                            <a href="project-details.html">Project Details</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="contact.html"> Contact</a>
-                      </li>
-                    </ul>
-                  </nav>
+    <>
+      <OffCanvas isOpen={offCanvas} close={() => setOffCanvas(false)} />
+      <header
+        data-scroll-index="0"
+        className={`header-area ${className ? className : ""}`}
+      >
+        {topbar && <Topbar />}
+        <div className="container custom-container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="header-items">
+                <div className="header-logo">
+                  <Link to="/">
+                    <img src={logo ? logo : "assets/images/logo.png"} alt="" />
+                  </Link>
                 </div>
-                <div className="toggle-btn">
-                  <div className="canvas_open ">
-                    <a href="javascript:void(0)">
-                      <img src="assets/images/bars.svg" alt="" />
-                    </a>
+                <div className="header-menu">
+                  <div className="main_menu menu_two d-flex justify-content-lg-between justify-content-center align-items-center">
+                    <nav>
+                      <ul>
+                        <li>
+                          <Link className="active" to="/">
+                            Home <i className="fa fa-angle-down"></i>
+                          </Link>
+                          <ul className="sub_menu">
+                            <li>
+                              <Link to="/">Home 1</Link>
+                            </li>
+                            <li>
+                              <Link to="/home-2">Home 2</Link>
+                            </li>
+                            <li>
+                              <Link to="/home-3">Home 3</Link>
+                            </li>
+                            <li>
+                              <Link to="/home-4">Home 4</Link>
+                            </li>
+                            <li>
+                              <Link to="/home-5">Home 5</Link>
+                            </li>
+                            <li>
+                              <Link to="/home-6">Home 6</Link>
+                            </li>
+                            <li>
+                              <Link to="/home-7">Home 7</Link>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <Link to="/about"> About</Link>
+                        </li>
+                        <li>
+                          <a>
+                            Portfolio <i className="fa fa-angle-down"></i>
+                          </a>
+                          <ul className="sub_menu">
+                            <li>
+                              <Link to="/portfolio-1">Portfolio 1</Link>
+                            </li>
+                            <li>
+                              <Link to="/portfolio-2">Portfolio 2</Link>
+                            </li>
+                            <li>
+                              <Link to="/portfolio-3">Portfolio 3</Link>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="#">
+                            Pages<i className="fa fa-angle-down"></i>
+                          </a>
+                          <ul className="sub_menu">
+                            <li>
+                              <Link to="/blog">Blog</Link>
+                            </li>
+                            <li>
+                              <Link to="/blog-details">Blog Details</Link>
+                            </li>
+                            <li>
+                              <Link to="/project-details">Project Details</Link>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <Link to="/contact"> Contact</Link>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <div
+                    className={`toggle-btn ${
+                      togglbtnClass ? togglbtnClass : ""
+                    }`}
+                    onClick={() => setOffCanvas(!offCanvas)}
+                  >
+                    <div className="canvas_open ">
+                      <a>
+                        <img
+                          src={
+                            toggleBtnImg
+                              ? toggleBtnImg
+                              : "assets/images/bars.svg"
+                          }
+                          alt=""
+                        />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
+Header.propTypes = {
+  className: ProtoTypes.string,
+  topbar: ProtoTypes.bool,
+  togglbtnClass: ProtoTypes.string,
+  toggleBtnImg: ProtoTypes.string,
+  logo: ProtoTypes.string,
+};
 
 export default Header;

@@ -1,3 +1,5 @@
+import Scroll from "../GoToTop/Scroll";
+
 function Hero() {
   return (
     <section className="hero-area d-flex align-items-center">
@@ -27,16 +29,7 @@ function Hero() {
       <div className="hero-shape">
         <img src="assets/images/shape/shape-5.jpg" alt="" />
       </div>
-      <div className="hero-scroll">
-        <a data-scroll-nav="1" href="#">
-          <span>S</span>
-          <span>C</span>
-          <span>R</span>
-          <span>O</span>
-          <span>L</span>
-          <span>L</span>
-        </a>
-      </div>
+      <Scroll />
     </section>
   );
 }

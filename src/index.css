@@ -1,0 +1,144 @@
+.mySwiper > .swiper-pagination > .swiper-pagination-bullet {
+  width: 16px;
+  height: 16px;
+  margin-top: 40px !important;
+  background: #5838fc !important;
+}
+
+.mySwiper > .swiper-pagination > .swiper-pagination-bullet-active {
+  background: #5838fc !important;
+}
+.mySwiper3 {
+  box-sizing: border-box !important;
+}
+.relatedProjects {
+  margin-bottom: 80px !important;
+}
+.related-project-box {
+  padding-bottom: 30px !important;
+}
+.mySwiper4 .swiper-slide {
+  height: 100%;
+  opacity: 0.4;
+}
+.mySwiper .swiper-slide .item h5 {
+  opacity: 0;
+  padding-top: 10px;
+  margin-bottom: 0px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.mySwiper .swiper-slide .item span {
+  opacity: 0;
+  margin-top: -10px;
+  font-size: 15px;
+  color: #6366ea;
+  line-height: 0px;
+}
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+.mySwiper .swiper-slide-thumb-active > .item h5 {
+  opacity: 1;
+}
+.mySwiper .swiper-slide-thumb-active > .item span {
+  opacity: 1;
+}
+.testimonial-user > .item {
+  opacity: 2 !important;
+}
+
+@media (max-width: 640px) {
+  .sm-pt-20 {
+    padding-top: 20px;
+  }
+  .sm-pb-20 {
+    padding-bottom: 20px;
+  }
+  .sm-mt-20 {
+    margin-top: 20px;
+  }
+  .sm-mb-20 {
+    padding-bottom: 20px;
+  }
+}
+
+.prevBtn {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #6366ea;
+  color: #6366ea;
+  cursor: pointer;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: "circular-3";
+}
+
+.prevBtn > div {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 100%;
+  translate: -50%;
+  min-width: 100px;
+  background: #f3f3f3;
+  text-align: left;
+}
+.nextBtn > div {
+  text-align: right;
+  margin-left: -50%;
+  translate: -10%;
+  top: 50%;
+}
+
+.prevBtn2 {
+  background: #6366ea;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: "circular-3";
+  padding: 0px 20px;
+}
+
+.prevBtn2 > div {
+  min-width: 100%;
+  text-align: left;
+  background: transparent;
+}
+.nextBtn2 > div {
+  text-align: right;
+}
+
+.prevBtn3 {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #6366ea;
+  color: #6366ea;
+  cursor: pointer;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: "circular-3";
+}
+
+.prevBtn3 > div {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 100%;
+  translate: -50%;
+  min-width: 100px;
+  background: #eae2e1;
+  text-align: left;
+}
+.nextBtn3 > div {
+  text-align: right;
+  margin-left: -50%;
+  translate: -10%;
+  top: 50%;
+}

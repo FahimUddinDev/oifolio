@@ -1,15 +1,20 @@
+import ProtoType from "prop-types";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function OffCanvas() {
+function OffCanvas({ isOpen, close }) {
+  const [subNav, setSubNav] = useState(false);
   return (
     <>
-      <div className="off_canvars_overlay"></div>
+      <div className={`off_canvars_overlay ${isOpen ? "active" : ""}`}></div>
       <div className="offcanvas_menu">
         <div className="container-fluid">
           <div className="row">
             <div className="col-12">
-              <div className="offcanvas_menu_wrapper active">
-                <div className="canvas_close">
+              <div
+                className={`offcanvas_menu_wrapper ${isOpen ? "active" : ""}`}
+              >
+                <div className="canvas_close" onClick={close}>
                   <a>
                     <i className="fa fa-times"></i>
                   </a>
@@ -29,9 +34,24 @@ function OffCanvas() {
                 </div>
                 <div id="menu" className="text-left ">
                   <ul className="offcanvas_main_menu">
-                    <li className="menu-item-has-children active">
+                    <li
+                      className={`menu-item-has-children ${
+                        subNav === "home" ? "active menu-open" : ""
+                      }`}
+                      onClick={() =>
+                        setSubNav(subNav === "home" ? false : "home")
+                      }
+                    >
+                      <span className="menu-expand">
+                        <i className="fa fa-angle-down"></i>
+                      </span>
                       <a>Home</a>
-                      <ul className="sub-menu">
+                      <ul
+                        className="sub-menu"
+                        style={{
+                          display: subNav === "home" ? "block" : "none",
+                        }}
+                      >
                         <li>
                           <Link to="/">Home 1</Link>
                         </li>
@@ -58,9 +78,24 @@ function OffCanvas() {
                     <li className="menu-item-has-children">
                       <Link to="/about"> about</Link>
                     </li>
-                    <li className="menu-item-has-children">
+                    <li
+                      className={`menu-item-has-children ${
+                        subNav === "portfolio" ? "active menu-open" : ""
+                      }`}
+                      onClick={() =>
+                        setSubNav(subNav === "portfolio" ? false : "portfolio")
+                      }
+                    >
+                      <span className="menu-expand">
+                        <i className="fa fa-angle-down"></i>
+                      </span>
                       <a> portfolio</a>
-                      <ul className="sub-menu">
+                      <ul
+                        className="sub-menu"
+                        style={{
+                          display: subNav === "portfolio" ? "block" : "none",
+                        }}
+                      >
                         <li>
                           <Link to="/portfolio-1">Portfolio 1</Link>
                         </li>
@@ -72,9 +107,24 @@ function OffCanvas() {
                         </li>
                       </ul>
                     </li>
-                    <li className="menu-item-has-children">
+                    <li
+                      className={`menu-item-has-children ${
+                        subNav === "pages" ? "active menu-open" : ""
+                      }`}
+                      onClick={() =>
+                        setSubNav(subNav === "pages" ? false : "pages")
+                      }
+                    >
+                      <span className="menu-expand">
+                        <i className="fa fa-angle-down"></i>
+                      </span>
                       <a>Pages</a>
-                      <ul className="sub-menu">
+                      <ul
+                        className="sub-menu"
+                        style={{
+                          display: subNav === "pages" ? "block" : "none",
+                        }}
+                      >
                         <li>
                           <Link to="/blog">Blog</Link>
                         </li>
@@ -87,7 +137,7 @@ function OffCanvas() {
                       </ul>
                     </li>
                     <li className="menu-item-has-children">
-                      <Link to="contact/"> Contact</Link>
+                      <Link to="/contact"> Contact</Link>
                     </li>
                   </ul>
                 </div>
@@ -122,5 +172,10 @@ function OffCanvas() {
     </>
   );
 }
+
+OffCanvas.propTypes = {
+  isOpen: ProtoType.bool,
+  close: ProtoType.func,
+};
 
 export default OffCanvas;

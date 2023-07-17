@@ -9,17 +9,19 @@ function GotoTop() {
     });
   };
   return (
-    <a
+    <div
       id="back-to-top"
       onClick={scrollToTop}
+      className="back-to-top"
       style={{
         bottom: "20px",
         opacity: scrollPosition > 600 ? "1" : "0",
         visibility: "visible",
+        display: "block",
       }}
     >
-      <i className="fal fa-angle-double-up"></i>
-    </a>
+      <i className="fa fa-arrow-up"></i>
+    </div>
   );
 }
 
